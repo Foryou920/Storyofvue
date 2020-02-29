@@ -87,37 +87,39 @@ export default {
 @import '~styles/variable.styl'
 @import '~styles/mixins.styl'
 // .icons下的子组件里面只要出现.swiper-container就插入以下样式
- .icons >>> .swiper-container
+.icons >>> .swiper-container
   height 0
   padding-bottom 50%
-.icon
-  position relative
-  overflow hidden
-  float left
-  width 25%
-  height 0
-  padding-bottom 25%
-  .icon-img
-    position absolute
-    top 0
-    right 0
-    bottom .44rem
-    left 0
-    box-sizing border-box
-    padding .1rem
-    .icon-img-content
-      display block
-      margin 0 auto
-      height 100%
-  .icon-desc
-    position absolute
-    left 0
-    right 0
-    bottom 0
-    height .44rem
-    line-height .44rem
-    color $darkTextColor
-    text-align center
-    // 如果desc超出长度则显示 ...
-    ellipsis()
+.icons
+  margin-top .1rem
+  .icon
+    position relative
+    overflow hidden
+    float left
+    width 25%
+    height 0
+    padding-bottom 25%
+    .icon-img
+      position absolute
+      top 0
+      right 0
+      bottom .44rem
+      left 0
+      box-sizing border-box
+      padding .1rem
+      .icon-img-content
+        display block
+        margin 0 auto
+        height 100%
+    .icon-desc
+      position absolute
+      left 0
+      right 0
+      bottom 0
+      height .44rem
+      line-height .44rem
+      color $darkTextColor
+      text-align center
+      // 如果desc超出长度则显示 ...
+      ellipsis()
 </style>
