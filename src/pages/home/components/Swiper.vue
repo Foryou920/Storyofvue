@@ -39,6 +39,7 @@ export default {
 </script>
 
 <style lang="stylus" scoped>
+// .wrapper下的子组件里面只要出现.swiper-pagination-bullet-active就插入以下样式
 .wrapper >>> .swiper-pagination-bullet-active
   background #ffffff !important
 .wrapper
