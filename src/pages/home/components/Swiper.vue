@@ -1,8 +1,8 @@
 <template>
   <div class="wrapper">
-    <swiper :options="swiperOption">
+    <swiper :options="swiperOption" v-if="showSwiper">
       <!-- slides -->
-      <swiper-slide v-for="item of swiperList" v-bind:key="item.id">
+      <swiper-slide v-for="item of list" v-bind:key="item.id">
         <img class="Swiper-img" v-bind:src="item.imgUrl" />
       </swiper-slide>
       <!-- Optional controls -->
@@ -15,25 +15,22 @@
 <script>
 export default {
   name: "HomeSwiper",
+  props: {
+    list: Array
+  },
   data: function() {
     return {
       swiperOption: {
         pagination: ".swiper-pagination",
         loop: true
-      },
-      swiperList: [
-        {
-          id: "0001",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201912/0b26e9760c2673c63c05e1efce1275ea.jpg_750x200_495c0a72.jpg"
-        },
-        {
-          id: "0002",
-          imgUrl:
-            "https://mp-piao-admincp.qunarzz.com/mp_piao_admin_mp_piao_admin/admin/201911/64d0b9e87e685d864add20d75c81bcc9.jpg_750x200_7a0937d7.jpg"
-        }
-      ]
+      }
     };
+  },
+  // 避免出现逻辑性的代码
+  computed: {
+    showSwiper: function() {
+      return this.list.length;
+    }
   }
 };
 </script>
