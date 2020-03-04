@@ -31,8 +31,12 @@
 </template>
 
 <script>
+import BScroll from "better-scroll";
 export default {
-  name: "CityList"
+  name: "CityList",
+  mounted: function() {
+    this.BScroll = new BScroll(this.$refs.wrapper);
+  }
 };
 </script>
 
