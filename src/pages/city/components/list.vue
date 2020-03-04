@@ -1,4 +1,4 @@
-<template>
+<template class="layout">
   <div class="list" ref="wrapper">
     <div>
       <div class="area">
@@ -17,7 +17,7 @@
           </div>
         </div>
       </div>
-      <div class="area" v-for="(item, key) of cities" :key="key">
+      <div class="area" v-for="(item, key) of cities" :key="key" :ref="key">
         <div class="title border-topbottom">{{ key }}</div>
         <div class="item-list">
           <div
@@ -33,16 +33,32 @@
   </div>
 </template>
 
-<script>
+<script scoped>
+// document.body.addEventListener(
+//   "touchmove",
+//   function(e) {
+//     e.preventDefault(); //阻止默认的处理方式(阻止下拉滑动的效果)
+//   },
+//   { passive: false }
+// ); //passive 参数不能省略，用来兼容ios和android
 import BScroll from "better-scroll";
 export default {
   name: "CityList",
   props: {
     hot: Array,
-    cities: Object
+    cities: Object,
+    letter: String
   },
   mounted: function() {
     this.BScroll = new BScroll(this.$refs.wrapper);
+  },
+  watch: {
+    letter: function() {
+      if (this.letter) {
+        const element = this.$refs[this.letter][0];
+        this.BScroll.scrollToElement(element);
+      }
+    }
   }
 };
 </script>
