@@ -70,8 +70,10 @@ export default {
 
 <style lang="stylus" scoped>
 @import '~styles/variable.styl'
+// 应用 CSS 属性 touch-action: none; 这样任何触摸事件都不会产生默认行为，但是 touch 事件照样触发。
+//  https://blog.csdn.net/lijingshan34/article/details/88350456
 *
-  touch-action: pan-y
+  touch-action: none
 .list
   display flex
   flex-direction column

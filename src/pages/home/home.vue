@@ -60,4 +60,7 @@ export default {
 };
 </script>
 
-<style></style>
+<style lang="stylus">
+.HomeF
+  overflow: hidden;
+</style>
