@@ -26,7 +26,8 @@
 </template>
 
 <script>
-import BSorll from "better-scroll";
+import BScroll from "better-scroll";
+
 export default {
   name: "CitySearch",
   props: {
@@ -70,7 +71,7 @@ export default {
     }
   },
   mounted: function() {
-    this.BSorll = new BSorll(this.$refs.search);
+    this.BScroll = new BScroll(this.$refs.search);
   }
 };
 </script>
