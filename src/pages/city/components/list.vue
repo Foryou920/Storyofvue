@@ -5,14 +5,19 @@
         <div class="title border-topbottom">当前城市</div>
         <div class="button-list">
           <div class="button-wrapper">
-            <div class="button">北京</div>
+            <div class="button">{{ this.currentCity }}</div>
           </div>
         </div>
       </div>
       <div class="area">
         <div class="title border-topbottom">热门城市</div>
         <div class="button-list">
-          <div class="button-wrapper" v-for="item of hot" :key="item.id">
+          <div
+            class="button-wrapper"
+            v-for="item of hot"
+            :key="item.id"
+            @click="handleCityClick(item.name)"
+          >
             <div class="button">{{ item.name }}</div>
           </div>
         </div>
@@ -24,6 +29,7 @@
             class="item border-topbottom"
             v-for="innerItem of item"
             :key="innerItem.id"
+            @click="handleCityClick(innerItem.name)"
           >
             {{ innerItem.name }}
           </div>
@@ -35,6 +41,8 @@
 
 <script scoped>
 import BScroll from "better-scroll";
+import { mapState } from "vuex";
+
 export default {
   name: "CityList",
   props: {
@@ -42,8 +50,18 @@ export default {
     cities: Object,
     letter: String
   },
-  mounted: function() {
-    this.BScroll = new BScroll(this.$refs.wrapper);
+  computed: {
+    ...mapState({
+      currentCity: "city"
+    })
+  },
+  methods: {
+    handleCityClick: function(city) {
+      // 不存在大量同步操作或者异步操作，所以组件可以直接调用mutations，而不需要actions转发
+      // this.$store.dispatch("changeCity", city);
+      this.$store.commit("changeCityMutations", city);
+      this.$router.push("/");
+    }
   },
   watch: {
     letter: function() {
@@ -52,6 +70,9 @@ export default {
         this.BScroll.scrollToElement(element);
       }
     }
+  },
+  mounted: function() {
+    this.BScroll = new BScroll(this.$refs.wrapper);
   }
 };
 </script>
