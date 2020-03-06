@@ -14,6 +14,7 @@
           class="search-item border-bottom"
           v-for="item of list"
           :key="item.id"
+          @click="handleCityClick(item.name)"
         >
           {{ item.name }}
         </li>
@@ -32,6 +33,12 @@ export default {
   name: "CitySearch",
   props: {
     cities: Object
+  },
+  methods: {
+    handleCityClick: function(city) {
+      this.$store.commit("changeCityMutations", city);
+      this.$router.push("/");
+    }
   },
   data: function() {
     return {
