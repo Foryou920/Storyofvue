@@ -41,10 +41,7 @@
 
 <script scoped>
 import BScroll from "better-scroll";
-<<<<<<< HEAD
-=======
 import { mapState } from "vuex";
->>>>>>> city-vuex
 
 export default {
   name: "CityList",
