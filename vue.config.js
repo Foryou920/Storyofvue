@@ -7,7 +7,8 @@ module.exports = {
   chainWebpack: config => {
     config.resolve.alias
       .set("@", resolve("src"))
-      .set("styles", resolve("src/assets/styles"));
+      .set("styles", resolve("src/assets/styles"))
+      .set("commom", resolve("src/commom"));
   },
   lintOnSave: false,
   devServer: {
