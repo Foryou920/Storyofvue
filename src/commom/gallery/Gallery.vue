@@ -19,7 +19,7 @@ export default {
       type: Array,
       default: function() {
         return [];
-    }
+      }
     }
   },
   data: function() {

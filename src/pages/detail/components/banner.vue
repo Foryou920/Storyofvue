@@ -1,20 +1,17 @@
 <template>
   <div>
     <div class="banner" @click="handleBannerClick">
-      <img
-        class="banner-img"
-        src="https://img1.qunarzz.com/sight/p0/1602/a2/a2db6aea3707663a90.img.jpg_600x330_95322c03.jpg"
-      />
+      <img class="banner-img" :src="bannerImg" />
       <div class="banner-info">
-        <div class="banner-title">梦幻百花洲</div>
+        <div class="banner-title">{{ this.sightName }}</div>
         <div class="banner-number">
           <span class="iconfont back-icon banner-icon">&#xe638;</span>
-          39
+          {{ this.gallaryImgs.length }}
         </div>
       </div>
     </div>
     <commit-gallery
-      :imgs="imgs"
+      :imgs="gallaryImgs"
       v-show="showGallery"
       @close="handleGalleryClose"
     ></commit-gallery>
@@ -26,13 +23,14 @@ import CommitGallery from "commom/gallery/Gallery";
 
 export default {
   name: "DetailBanner",
+  props: {
+    sightName: String,
+    bannerImg: String,
+    gallaryImgs: Array
+  },
   data: function() {
     return {
-      showGallery: false,
-      imgs: [
-        "http://img1.qunarzz.com/sight/p0/1602/a2/a2db6aea3707663a90.img.jpg_r_800x800_f06fc71d.jpg",
-        "http://img1.qunarzz.com/sight/p0/1602/ec/ecf4f576181c285790.img.jpg_r_800x800_c2833cda.jpg"
-      ]
+      showGallery: false
     }
   },
   components: {
