@@ -10,16 +10,19 @@
         </div>
       </div>
     </div>
-    <commit-gallery
-      :imgs="gallaryImgs"
-      v-show="showGallery"
-      @close="handleGalleryClose"
-    ></commit-gallery>
+    <fade-animation>
+      <commit-gallery
+        :imgs="gallaryImgs"
+        v-show="showGallery"
+        @close="handleGalleryClose"
+      ></commit-gallery>
+    </fade-animation>
   </div>
 </template>
 
 <script>
 import CommitGallery from "commom/gallery/Gallery";
+import FadeAnimation from "commom/fade/FadeAnimation";
 
 export default {
   name: "DetailBanner",
@@ -34,7 +37,8 @@ export default {
     }
   },
   components: {
-    CommitGallery: CommitGallery
+    CommitGallery: CommitGallery,
+    FadeAnimation: FadeAnimation
   },
   methods: {
     handleBannerClick: function() {
