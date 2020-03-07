@@ -4,6 +4,7 @@ import router from "./router";
 import fastClick from "fastclick";
 import VueAwesomeSwiper from "vue-awesome-swiper";
 import store from "./store";
+import "babel-polyfill";
 // CSS文件引入
 import "styles/reset.css";
 import "styles/border.css";
