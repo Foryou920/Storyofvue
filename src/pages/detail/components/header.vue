@@ -31,7 +31,7 @@ export default {
         opacity = opacity > 1 ? 1 : opacity;
         this.opacityStyle = {
           opacity: opacity
-        }
+        };
         this.showAbs = false;
       } else {
         this.showAbs = true;
@@ -44,7 +44,7 @@ export default {
   deactivated: function() {
     window.removeEventListener("scroll", this.handleScroll);
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

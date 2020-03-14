@@ -1,6 +1,7 @@
 <template>
   <div class="icons">
     <swiper :options="swiperOption">
+      <!-- 根据页数v-for循环出两个swiper-slide -->
       <swiper-slide v-for="(page, index) of pages" :key="index">
         <div class="icon" v-for="item of page" :key="item.id">
           <div class="icon-img">
@@ -17,14 +18,16 @@
 export default {
   name: "HomeIcons",
   props: {
+    // 接收来自父组件传递的值
     list: Array
   },
   data: function() {
     return {
       swiperOption: {
+        // 关闭swiper插件的自动播放
         autoplay: false
       }
-    }
+    };
   },
   computed: {
     // 将页面分为开，8个为一页

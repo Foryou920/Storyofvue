@@ -24,6 +24,7 @@ export default {
   },
   data: function() {
     return {
+      // swiper设置
       swiperOptions: {
         pagination: ".swiper-pagination",
         paginationType: "fraction",
@@ -34,10 +35,11 @@ export default {
   },
   methods: {
     handleGalleryClick: function() {
+      // 被点击向外触发close事件
       this.$emit("close");
     }
   }
-}
+};
 </script>
 
 <style lang="stylus" scoped>

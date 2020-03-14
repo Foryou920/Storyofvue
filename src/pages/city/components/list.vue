@@ -52,6 +52,7 @@ export default {
   },
   computed: {
     ...mapState({
+      // 将city映射到计算属性currentCity
       currentCity: "city"
     })
   },
@@ -60,18 +61,23 @@ export default {
       // 不存在大量同步操作或者异步操作，所以组件可以直接调用mutations，而不需要actions转发
       // this.$store.dispatch("changeCity", city);
       this.$store.commit("changeCityMutations", city);
+      // 编程式导航，效果类似<router-link>
       this.$router.push("/");
     }
   },
   watch: {
+    // 当父组件传递进来的值发生改变则触发监听器
     letter: function() {
       if (this.letter) {
+        // 在HTML中使用ref获取到的是DOM
         const element = this.$refs[this.letter][0];
+        // 使用BScroll跳转到该字母
         this.BScroll.scrollToElement(element);
       }
     }
   },
   mounted: function() {
+    // 对.wrapper使用BScroll插件
     this.BScroll = new BScroll(this.$refs.wrapper);
   }
 };

@@ -20,6 +20,7 @@ export default {
   },
   data: function() {
     return {
+      // swiper组件的一些设置
       swiperOption: {
         pagination: ".swiper-pagination",
         loop: true

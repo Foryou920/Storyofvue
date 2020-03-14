@@ -36,7 +36,9 @@ export default {
   },
   methods: {
     handleCityClick: function(city) {
+      // Vuex 通过commit直接操作mutations
       this.$store.commit("changeCityMutations", city);
+      // 跳转回根路径
       this.$router.push("/");
     }
   },
@@ -48,6 +50,7 @@ export default {
     };
   },
   computed: {
+    // 当列表长度为零，hasNoData则为true
     hasNoData: function() {
       return !this.list.length;
     }
@@ -62,13 +65,16 @@ export default {
         return;
       }
       this.timer = setTimeout(() => {
+        // 搜索结果是一个数组
         const result = [];
         for (let i in this.cities) {
           this.cities[i].forEach(value => {
             if (
+              // 用indexOf方法查找关键词是否存在
               value.spell.indexOf(this.keyword) > -1 ||
               value.name.indexOf(this.keyword) > -1
             ) {
+              // 如果存在将value放入结果数组
               result.push(value);
             }
           });

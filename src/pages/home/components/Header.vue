@@ -8,6 +8,7 @@
     </div>
     <router-link to="/city">
       <div class="header-right">
+        <!-- 来自Vuex中的state -->
         {{ this.city }}<span class="iconfont">&#xe65c;</span>
       </div>
     </router-link>
@@ -15,11 +16,13 @@
 </template>
 
 <script>
+// mapState是Vuex提供的一个API
 import { mapState } from "vuex";
 
 export default {
   name: "HomeHeader",
   computed: {
+    // 将公用数据city映射到组件的计算属性中
     ...mapState(["city"])
   }
 };

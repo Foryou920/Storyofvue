@@ -37,7 +37,7 @@ export default {
   line-height .8rem
   font-size .32rem
   padding 0 .2rem
-// 我把item-children卸载item-title下就可以不用设置item-children的样式
+// 我把item-children写在item-title下就可以不用设置item-children的样式
 // .item-children
 //   padding 0 .2rem
 </style>

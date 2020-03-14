@@ -21,6 +21,7 @@
 </template>
 
 <script>
+// 组件化
 import CommitGallery from "commom/gallery/Gallery";
 import FadeAnimation from "commom/fade/FadeAnimation";
 
@@ -34,7 +35,7 @@ export default {
   data: function() {
     return {
       showGallery: false
-    }
+    };
   },
   components: {
     CommitGallery: CommitGallery,
@@ -42,9 +43,11 @@ export default {
   },
   methods: {
     handleBannerClick: function() {
+      // 点击时显示Gallery组件
       this.showGallery = true;
     },
     handleGalleryClose: function() {
+      // 点击时关闭Gallery组件
       this.showGallery = false;
     }
   }
