@@ -3,7 +3,7 @@
 >Vue开发去哪儿网App 实战项目
 >
 
-[项目预览](http://foryou092.club/Storyofvue/)
+[项目预览](http://yujianhoro.club/Storyofvue/)
 
 这里是我第一个Vue的实战项目，实现了基本的首页、城市选择功能，是我前端学习的敲门砖。
 
